@@ -1,2 +1,7 @@
-/node_modules
 /build
+### Node ###
+node_modules
+npm-debug.log*
+
+### build ###
+build
