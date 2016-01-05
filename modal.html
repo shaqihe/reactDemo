@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+   <link rel="stylesheet" type="text/css" href="../css/slider.css">
+  <body>
+  <style type="text/css">
+    .overlay {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      z-index: 9;
+      position: fixed;
+      background-color: black;
+    }
+
+    .modal {
+      z-index: 10;
+      position: fixed;
+      left:25%;
+      top:25%;
+      background: white;
+      height: 300px;
+      width: 400px;
+      border: 1px solid #ddd;
+    }
+
+    .hide {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+	<div>
+		<button id='open'>open modal</button>
+	</div>
+	<div id='isDisplay' class='hide'>
+			<div class='overlay'>overlay</div>
+			<div class='modal'>
+				<div>title <button id='close'>close</button> </div>
+				<div>body</div>
+			</div>
+		</div> 
+  </body>
+
+  <script>
+  	var open = document.getElementById('open');
+  	open.onclick = function(event) {
+  		document.getElementById('isDisplay').className='show'
+  	}
+  	var close = document.getElementById('close');
+  	close.onclick = function(event) {
+  		document.getElementById('isDisplay').className='hide'
+  	}
+  	var modal = document.getElementsByClassName('modal')[0];
+  	var x = 0;
+  	var y = 0;
+  	function mouseMove(event) {
+  		var diffX = event.pageX - x;
+  		var diffY = event.pageY - y;
+  		x = event.pageX;
+  		y = event.pageY;
+  		var dropLeft = modal.offsetLeft + diffX;
+  		var dropTop = modal.offsetTop + diffY
+  		if ( modal.offsetLeft + modal.offsetWidth + diffX >= document.documentElement.clientWidth || dropLeft <= 0) {
+  			unbind(modal, 'mousemove', mouseMove, false);
+  			return;
+  		}
+  		if (modal.offsetTop + modal.offsetHeight + diffY >= document.documentElement.clientHeight || dropTop <= 0) {
+  			unbind(modal, 'mousemove', mouseMove, false);
+  			return;
+  		}
+  		modal.style.left = dropLeft + 'px';
+  		modal.style.top = dropTop + 'px';
+  	}
+  	function unbind(object, method, func, bool) {
+  		object.removeEventListener(method, func, bool);
+  	}
+  	modal.onmousedown = function(event) {
+  		console.log(event.type);
+  		x = event.pageX;
+  		y = event.pageY;
+  		modal.addEventListener('mousemove', mouseMove, false);
+  	}
+
+  	modal.onmouseup = function(event) {
+  		console.log(event.type);
+  		// modal.removeEventListener('mousemove', mouseMove(event), false)
+  		unbind(modal, 'mousemove', mouseMove, false);
+  	}
+  	
+  </script>
+</html>
+
+
