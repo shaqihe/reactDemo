@@ -8,7 +8,7 @@ Install.
 *3.gulp and then open localhost:8000/
  ## example:
  
-```
+```javascript
 import React from 'react'
 import { render } from 'react-dom'
 import Modal from './modal'
