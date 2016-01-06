@@ -5,8 +5,8 @@ class Modal extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			left:null,
-			top: null,
+			left:this.props.style.modal.left,
+			top: this.props.style.modal.top
 		}
 		this.x = 0;
 		this.y = 0;
@@ -23,6 +23,7 @@ class Modal extends React.Component {
   		this.y = event.pageY;
   	}
   	_mouseMove(event) {
+  		const styles = this.getStyles();
   		if (!this.dragDrop) {
   			return;
   		}
@@ -48,7 +49,7 @@ class Modal extends React.Component {
   		})
   	}
  	shouldComponentUpdate(nextProps, nextState) {
-  		return nextProps.isOpen !== this.props.isOpen || this.state.left !== nextState.left 
+  		return nextProps.isOpen !== this.props.isOpen || this.state.left !== nextState.left
   			|| this.state.top !== nextState.top;
  	}
 	getStyles() {
@@ -56,8 +57,6 @@ class Modal extends React.Component {
 			modal: {
 				zIndex: 100,
 			    position: 'fixed',
-			    top: this.state.top ? this.state.top: '25%', // will get from parent components
-			    left: this.state.left ? this.state.left: '25%',
 			    width: '53%',
 			    height: '49%',
 			    padding: '8px',
@@ -76,10 +75,15 @@ class Modal extends React.Component {
 				height: '40px'
 			}
 		}
+		let style = this.props.style;
+		
+		Object.assign(styles.modal, style.modal);
+		styles.modal.left = this.state.left ? this.state.left: '25%';
+		styles.modal.top = this.state.top ? this.state.top: '25%';
 		return styles;
 	}
 	render() {
-		let styles = this.getStyles();
+		const styles = this.getStyles()
 		return (
 			this.props.isOpen ? 
 				<div>
@@ -92,7 +96,7 @@ class Modal extends React.Component {
 						<div>{this.props.children}</div>
 
 					</div>
-					<Overlay /> 
+					<Overlay zIndex={this.props.style.modal.zIndex} /> 
 				</div> 
 				:
 			 	<div></div>
@@ -101,7 +105,13 @@ class Modal extends React.Component {
 	}
 }
 Modal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  	isOpen: PropTypes.bool.isRequired,
+}
+
+Modal.defaultProps = {
+	style: {
+		modal:{}
+	}
 }
 
 export default Modal
