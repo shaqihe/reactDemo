@@ -2,6 +2,7 @@
 It is a react modal. can drag and drop. Use react, es6, webpack, gulp.
 and It support multiple modal.But you will manual to set the zIndex.
 
+<<<<<<< HEAD
 ##Install.
 * 1.npm install gulp -g.
 * 2.npm install.
@@ -73,3 +74,9 @@ render(
 )
 ```
  
+=======
+Install.
+ 1. npm install gulp -g.
+ 2. npm install.
+ 3. gulp and then open localhost:8000/
+>>>>>>> 15833678f02b83e5eb34b4471e9bf60f821fbe3b
