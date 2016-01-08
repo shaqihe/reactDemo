@@ -18,7 +18,7 @@ class List extends Component {
       }
 
     componentDidMount() {
-        ajax('/users/users', function(result) {
+        ajax('/agent/users', function(result) {
             var lastGist = result;
             if (lastGist.length > 0) {
                 let listData = this.state.data.concat(lastGist);
