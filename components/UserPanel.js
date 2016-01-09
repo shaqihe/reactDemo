@@ -21,13 +21,13 @@ class UserPanel extends Component {
             </a>
           </div>
           <div className="cell">
-            <a href="http://mall.baidu.com/">
+            <a href="http://hui.baidu.com/">
               <strong>百度惠产品线</strong>
             </a>
           </div>
           <div className="cell">
-            <a href="http://mall.baidu.com/">
-              <strong>百度打假产品线</strong>
+            <a href="/agent/sun/admin/getHot" target="_blank">
+              <strong>更新最新数据※快捷操作</strong>
             </a>
           </div>
         </div>

@@ -32,6 +32,7 @@
     "webpack": "^1.12.9"
   },
   "devDependencies": {
+    "ajax-promise": "^0.8.1",
     "connect-modrewrite": "^0.8.2",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",

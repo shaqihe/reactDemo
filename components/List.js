@@ -7,21 +7,22 @@
 import React, { PropTypes, Component } from 'react'
 import dao from '../api/dao'
 import Item from './Item'
+import LoadNext from './LoadNext'
 
 class List extends Component {
-      constructor() {
-            super();
-            this.state = {
-                data: [{
-                    text: '本项目是个简单的React的Demo，代码已放在github上，欢迎点赞。',
-                    link: 'https://github.com/shaqihe/sunApp.git'
-                }],
-                count: -1,
-                allPage: 0
-            }
-      }
+  constructor() {
+        super();
+        this.state = {
+            data: [{
+                text: '本项目是个简单的React的Demo，代码已放在github上，欢迎点赞。',
+                link: 'https://github.com/shaqihe/sunApp.git'
+            }],
+            count: -1,
+            allPage: 0
+        }
+    }
 
-    componentDidMount() {
+    getHotData () {
         dao.hotData({pageNo: this.state.count + 1})
         .then((res)=>{
             let lastGist = res.result;
@@ -36,14 +37,21 @@ class List extends Component {
         });
     }
 
+    componentDidMount() {
+        this.getHotData();
+    }
+
+    nextLoadClick () {
+        this.getHotData();
+    }
+
     render() {
         return (
         <div className="main">
             {this.state.data.map((topic, index) =>
                <Item {...topic} key={index}/>
             )}
-            <span>总页码是：{this.state.allPage}</span>
-            <span> 当前是：{this.state.count}</span>
+            <LoadNext load='1' callBack={this.nextLoadClick.bind(this)}/>
         </div>
         )
     }

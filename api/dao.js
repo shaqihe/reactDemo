@@ -1,8 +1,8 @@
-import { fetchData } from '../utils/ajax'
+import { fetch } from '../utils/fetch'
 
 var dao = {
-    hotData: function (query) {
-        return fetchData('/agent/sun/hotList', query);
+    hotData: (query)=>{
+        return fetch('/agent/sun/hotList', query);
     }
 }
 
