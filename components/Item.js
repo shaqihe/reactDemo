@@ -13,7 +13,8 @@ class Item extends Component {
   render() {
     return (
         <div className="box item">
-            <p className="content-text">{this.props.title}</p>
+            <p className="content-text">{this.props.text}</p>
+            <a className="item-link" target="_blank" href={this.props.link}>{this.props.link}</a>
             <img src={this.props.src}/>
         </div>
     )

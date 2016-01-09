@@ -5,35 +5,45 @@
  */
 
 import React, { PropTypes, Component } from 'react'
-import {ajax} from '../utils/ajax'
+import dao from '../api/dao'
 import Item from './Item'
 
 class List extends Component {
       constructor() {
             super();
             this.state = {
-                data: [{}],
-                count: 0
+                data: [{
+                    text: '本项目是个简单的React的Demo，代码已放在github上，欢迎点赞。',
+                    link: 'https://github.com/shaqihe/sunApp.git'
+                }],
+                count: -1,
+                allPage: 0
             }
       }
 
     componentDidMount() {
-        ajax('/agent/users', function(result) {
-            var lastGist = result;
+        dao.hotData({pageNo: this.state.count + 1})
+        .then((res)=>{
+            let lastGist = res.result;
             if (lastGist.length > 0) {
                 let listData = this.state.data.concat(lastGist);
                 this.setState({
                     data: listData,
+                    count: res.page.pageNo,
+                    allPage: res.page.allPage
                 });
-        }}.bind(this));
+            }
+        });
     }
 
     render() {
         return (
         <div className="main">
             {this.state.data.map((topic, index) =>
-               <Item {...topic}/>
+               <Item {...topic} key={index}/>
             )}
+            <span>总页码是：{this.state.allPage}</span>
+            <span> 当前是：{this.state.count}</span>
         </div>
         )
     }

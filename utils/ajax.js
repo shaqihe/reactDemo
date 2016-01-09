@@ -19,4 +19,12 @@ function ajax(url, cb) {
     }
 }
 
-export { ajax }
+
+function fetchData(url, params) {
+    return fetch(url, {
+        method: "POST",
+        body: JSON.stringify(params)
+    }).then(function(res) { return res.json()});
+}
+
+export { ajax ,fetchData }

@@ -36,7 +36,7 @@ gulp.task("connect", function() {
                 (function () {
                     var url = require('url');
                     var proxy = require('proxy-middleware');
-                    var options = url.parse('http://localhost:3000');
+                    var options = url.parse('http://127.0.0.1:3000');
                     options.route = '/agent';  //已agent开头的请求，转发到数据端
                     return proxy(options);
                 })(),
