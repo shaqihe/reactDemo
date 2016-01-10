@@ -1,76 +1,23 @@
-# react-modal
-It is a react modal. can drag and drop. Use react, es6, webpack, gulp.
-and It support multiple modal.But you will manual to set the zIndex.
+### 是基于React 开发的一个小demo， 结构比较简单，趁个周末写的
+### 构建工具是 gulp + webpack
 
-=======
-Install.
- 1. npm install gulp -g.
- 2. npm install.
- 3. gulp and then open localhost:8000/
 
- ## example:
- 
-```javascript
-import React from 'react'
-import { render } from 'react-dom'
-import Modal from './modal'
-class Main extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			isOpen:false,
-			isOpen2:false
-		}
-		this.style = {
-			modal:{
-				zIndex:200,
-				left:'40%',
-				top:'40%',
-				height:'40%',
-				width:'30%'
-			}
-		}
-	}
-  	_openModal() {
-  		this.setState({isOpen:true});
-  	}
-  	_openModal2() {
-  		this.setState({isOpen2:true});
-  	}
-  	_onDismiss() {
-  		this.setState({isOpen:false});
-  	}
-  	_onDismiss2() {
-  		this.setState({isOpen2:false});
-  	}
- 	render(){
- 		const title = <div style={{'float': 'left'}}>Modal Page</div>
-		return(
-			<div>
-				<div>
-					<button onClick={this._openModal.bind(this)} className='button float-left'>Open Modal</button>
-					
-					<Modal title={title} isOpen={this.state.isOpen}>
-						<div style={{margin:'20px', height:'200px'}}>
-							Modal1
-						</div>
-						<div><button style={{height:'30px',width:'60px',background:'#ddd'}} onClick={this._onDismiss.bind(this)}>Close</button></div>
-						<button onClick={this._openModal2.bind(this)} style={{height:'30px',width:'100px',background:'#ddd',margin:'10px'}} >Open Modal2</button>
-					</Modal>
-					<Modal style={this.style} title={title} isOpen={this.state.isOpen2}> {/*you can set the modal style youself*/}
-						<div style={{margin:'20px', height:'200px'}}>
-							Modal2
-						</div>
-						<div><button style={{height:'30px',width:'60px',background:'#ddd'}} onClick={this._onDismiss2.bind(this)}>Close</button></div>
-					</Modal>
-				</div>
-			</div>
-		)
-	}
-}
+#### 启动
 
-render(
-  <Main />,
-  document.getElementById('modal')
-)
+```
+1.git clone https://github.com/shaqihe/sunweb.git
+2.cd sunweb
+3.npm install
+4.gulp //启动gulp 服务器
+5.因为数据是基于后端的爬虫系统，单独启动 前端 是无法获取数据，方便大家调试，提供一下我开发机的地址，
+  配置如下： 在根目录的 gulpfile 文件中 var options = url.parse('XXXXX')；中的XX替换成
+  'http://118.192.156.85:3000'。  用着方便，给个star，嘎嘎~
+
+```
+说明：
+1.前后端是完全分离了，前端单要起单独的服务器。
+2.后端是node 提供数据，数据是爬虫抓取的，为加快爬虫数据读写，数据存储用的是redis
+3.样式是less
+4.代码采用es6 jsx   用babel编译
+5.文件结构比较简单
 ```

@@ -15,7 +15,7 @@ class List extends Component {
         this.state = {
             data: [{
                 text: '本项目是个简单的React的Demo，代码已放在github上，欢迎点赞。',
-                link: 'https://github.com/shaqihe/sunApp.git'
+                link: 'https://github.com/shaqihe/sunweb.git'
             }],
             count: -1,
             allPage: 0
