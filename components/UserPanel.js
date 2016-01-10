@@ -13,16 +13,16 @@ class UserPanel extends Component {
       return (
         <div className="user-panel box">
           <div className="cell title">
-            <strong>ECEFE 是百度电商前端团队</strong>
+            <strong>此处可以加广告</strong>
           </div>
           <div className="cell">
             <a href="http://mall.baidu.com/">
-              <strong>百度mall产品线</strong>
+              <strong>XX产品线</strong>
             </a>
           </div>
           <div className="cell">
             <a href="http://hui.baidu.com/">
-              <strong>百度惠产品线</strong>
+              <strong>XX产品线</strong>
             </a>
           </div>
           <div className="cell">
