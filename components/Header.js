@@ -12,8 +12,8 @@ class Header extends Component {
     return (
       <header className="header">
         <div className="content">
-          <img className="logo" src="http://www.qiushibaike.com/static/images/v2/week1.png" alt="V2EX"/>
-          <UserLink userName="shaqihe"/>
+          <img className="logo" src="../static/images/logo.png" alt="sun"/>
+          <UserLink userName=""/>
         </div>
       </header>
     )
