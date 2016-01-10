@@ -34,6 +34,8 @@ class List extends Component {
                     allPage: res.page.allPage
                 });
             }
+        }).catch((err)=>{
+            console.log(err);
         });
     }
 
