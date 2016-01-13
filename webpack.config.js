@@ -7,7 +7,7 @@ var node_modules_dir = path.resolve(__dirname, 'node_modules');
 var config = {
     devtool:false,
     entry: {
-        app : path.resolve(__dirname, 'components/main'),
+        admin : path.resolve(__dirname, 'containers/Admin'),
         all: './index',
     },
     output: {

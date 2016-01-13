@@ -12,7 +12,10 @@ class Header extends Component {
     return (
       <header className="header">
         <div className="content">
-          <img className="logo" src="../static/images/logo.png" alt="sun"/>
+          <div className="nav">
+            <a className="nav-a" href='?dataType=hot'>热门</a>
+            <a className="nav-a" href='?dataType=image'>图片</a>
+          </div>
           <UserLink userName=""/>
         </div>
       </header>

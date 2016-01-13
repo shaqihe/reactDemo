@@ -8,6 +8,36 @@
         margin: 0 auto;
         height: 100%;
         line-height: 82px;
+        img {
+            display: inline-block;
+        }
+
+        .nav {
+            font-family: "Microsoft YaHei",Arial,"Hiragino Sans GB";
+            float: left;
+            margin: 0 60px;
+        }
+
+        .nav-a {
+            display: inline-block;
+            margin-right: 1px;
+            padding: 0 14px;
+            text-align: center;
+            line-height: 82px;
+            font-size: 16px;
+            color: #7a4624;
+            height: 78px;
+            border-bottom: 4px solid #ffd52b;
+            text-decoration: none;
+            &:hover {
+                background: #ffe36f;
+                border-bottom-color: #7a4624;
+            }
+        }
+        .active {
+            background: #ffe36f;
+            border-bottom-color: #7a4624;
+        }
     }
 
     .user-link {

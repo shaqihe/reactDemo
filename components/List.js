@@ -8,6 +8,8 @@ import React, { PropTypes, Component } from 'react'
 import dao from '../api/dao'
 import Item from './Item'
 import LoadNext from './LoadNext'
+import { getQueryString } from '../utils/fetch'
+
 
 class List extends Component {
   constructor() {
@@ -18,12 +20,13 @@ class List extends Component {
                 link: 'https://github.com/shaqihe/sunweb.git'
             }],
             count: -1,
-            allPage: 0
+            allPage: 0,
+            dataType: getQueryString('dataType')
         }
     }
 
-    getHotData () {
-        dao.hotData({pageNo: this.state.count + 1})
+    getHotData (dataType) {
+        dao.hotData({pageNo: this.state.count + 1, dataType: dataType})
         .then((res)=>{
             let lastGist = res.result;
             if (lastGist.length > 0) {
@@ -40,7 +43,7 @@ class List extends Component {
     }
 
     componentDidMount() {
-        this.getHotData();
+        this.getHotData(this.state.dataType);
     }
 
     nextLoadClick () {
