@@ -47,7 +47,7 @@ class List extends Component {
     }
 
     nextLoadClick () {
-        this.getHotData();
+        this.getHotData(this.state.dataType);
     }
 
     render() {
