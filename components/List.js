@@ -21,7 +21,7 @@ class List extends Component {
             }],
             count: -1,
             allPage: 0,
-            dataType: getQueryString('dataType')
+            dataType: getQueryString('dataType') || 'hot'
         }
     }
 
