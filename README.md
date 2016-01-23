@@ -4,7 +4,7 @@
 ### 构建工具是 gulp + webpack
 
 
-#### 启动
+#### 启动(在这之前要安装node、git、gulp)
 
 ```
 1.git clone https://github.com/shaqihe/sunweb.git
