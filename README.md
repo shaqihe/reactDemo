@@ -14,7 +14,9 @@
 5.因为数据是基于后端的爬虫系统，单独启动 前端 是无法获取数据，方便大家调试，提供一下我开发机的地址，
   配置如下： 在根目录的 gulpfile 文件中 var options = url.parse('XXXXX')；中的XX替换成
   'http://118.192.156.85:3000'。  用着方便，给个star，嘎嘎~
-6.  项目的后台代码是： https://github.com/shaqihe/sunshine  也自己启动后台服务，然后设置var options = url.parse('XXXXX') XX为自己后台服务的ip 
+  
+  
+6. ！！ 项目的后台代码是： https://github.com/shaqihe/sunshine  也自己启动后台服务，然后设置var options = url.parse('XXXXX') XX为自己后台服务的ip 
 
 ```
 ```
